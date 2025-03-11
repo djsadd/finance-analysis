@@ -25,7 +25,7 @@ class expenseList(LoginRequiredMixin, ListView):
 
 class expensesCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Expense
-    fields = ["why", "amount", "description"]
+    fields = ["why", "amount", "description", "category_expense"]
     success_url = reverse_lazy("expense")
     template_name = "expenses/addExpenses.html"
     success_message = "Expense successfully created"

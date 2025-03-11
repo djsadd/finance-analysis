@@ -1,6 +1,8 @@
 {% extends 'partials/__base.html' %}
 {% load static %}
 {% block body %}
+{% load plotly_dash %}
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -60,7 +62,7 @@
                 <!-- End of Topbar -->
 
                 {% include 'partials/__status.html' %}
-                
+
                 <!-- Content Row -->
                     <!-- Area Chart -->
                     <div class="col-xl-12 col-lg-12">
@@ -68,18 +70,140 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Income and Expense Overview</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Отчёт доходов и расхдов</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
+                                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                    <canvas id="testChart"></canvas>
+                                    <script>
+                                        var incomesData = {{ incomes_data|safe }};
+                                        var expensesData = {{ expenses_data|safe }};
+
+                                        console.log("INCOMES DATA:", incomesData);
+                                        console.log("EXPENSES DATA:", expensesData);
+
+                                        var labels = incomesData.map(item => `${item.year}-${item.month}`);
+                                        var incomeValues = incomesData.map(item => item.total);
+
+                                        var expenseValues = expensesData.map(item => item.total);
+
+                                        var ctx = document.getElementById("testChart").getContext("2d");
+
+                                        new Chart(ctx, {
+                                            type: "bar",
+                                            data: {
+                                                labels: labels,
+                                                datasets: [
+                                                    {
+                                                        label: "Доход",
+                                                        data: incomeValues,
+                                                        backgroundColor: "rgba(54, 162, 235, 0.6)"
+                                                    },
+                                                    {
+                                                        label: "Расход",
+                                                        data: expenseValues,
+                                                        backgroundColor: "rgba(255, 99, 132, 0.6)"
+                                                    }
+                                                ]
+                                            }
+                                        });
+                                    </script>
+
+                                     <script>
+                                        var incomesData = {{ incomes_data|safe }};
+                                    </script>
+                                    <script>
+                                    var ctx = document.getElementById("testChart").getContext("2d");
+
+                                    var expensesData = {{ expenses_data|safe }};
+                                    var incomesData = {{ incomes_data|safe }};
+
+                                    var labels = expensesData.map(item => `${item.year}-${item.month}`);
+                                    var expenseValues = expensesData.map(item => item.total);
+                                    var incomeValues = incomesData.map(item => item.total);
+
+                                    new Chart(ctx, {
+                                        type: "bar",
+                                        data: {
+                                            labels: labels,
+                                            datasets: [
+                                                {
+                                                    label: "Расходы",
+                                                    data: expenseValues,
+                                                    backgroundColor: "rgba(255, 99, 132, 0.6)"
+                                                },
+                                                {
+                                                    label: "Доходы",
+                                                    data: incomeValues,
+                                                    backgroundColor: "rgba(54, 162, 235, 0.6)"
+                                                }
+                                            ]
+                                        }
+                                    });
+                                </script>
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+                <!-- Content Row -->
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-2">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Отчёт расходов</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                    <canvas id="CategoryChart"></canvas>
+
+                                    <script>
+                                    var expensesDataCategory = {{ expenses_data_category|safe }};
+
+                                    console.log("CATEGORY DATA:", expensesDataCategory);  // Проверяем в консоли браузера
+
+                                    if (expensesDataCategory.length > 0) {
+                                        var categoryLabels = expensesDataCategory.map(item => item.category_expense__title);
+                                        var categoryValues = expensesDataCategory.map(item => item.total);
+
+                                        var ctx = document.getElementById("CategoryChart").getContext("2d");
+                                        new Chart(ctx, {
+                                            type: "pie",
+                                            data: {
+                                                labels: categoryLabels,
+                                                datasets: [{
+                                                    data: categoryValues,
+                                                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#FF9800"],
+                                                }]
+                                            }
+                                        });
+                                    } else {
+                                        console.log("No category data found.");
+                                    }
+                                </script>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
+
+
  {% endblock body %}

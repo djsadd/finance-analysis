@@ -11,6 +11,8 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Или "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap5"  # Замените на вашу версию
 
 
 # Configure cloudinary
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "django.contrib.humanize",
     "crispy_forms",
+    "crispy_bootstrap4",  # Добавьте этот пакет
     "django_countries",
     "allauth",
     "allauth.account",
@@ -54,7 +57,7 @@ INSTALLED_APPS = [
     # providers to enable for social login:
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
-
+    "django_plotly_dash",
 ]
 # production
 SITE_ID = 2
@@ -108,6 +111,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = "Project.urls"
@@ -184,7 +188,8 @@ EMAIL_HOST_USER = "hossain.chisty@zohomail.com"
 DEFAULT_EMAIL_FROM = '<noreply@hossain.chisty@zohomail.com>'
 EMAIL_HOST_PASSWORD = "#2#3B399TiU@aBC"
 EMAIL_USE_SSL = True
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "/"

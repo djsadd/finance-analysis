@@ -16,7 +16,7 @@ class Profile(models.Model):
     phone_regex = RegexValidator(
         regex=r'^\+?880?\d{9,11}$', message="Phone number must be entered in the format: '+8801234233566'. Up to 11 digits allowed.")
     phone_number = models.CharField(
-        validators=[phone_regex], max_length=17, blank=True)
+        validators=[phone_regex], max_length=17, null=True, blank=True)
     city = models.CharField(
         verbose_name=_("City"), max_length=400, null=True, blank=True
     )
