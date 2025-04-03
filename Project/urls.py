@@ -7,7 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.views.generic.base import TemplateView
 from django.contrib.sitemaps import GenericSitemap
 from expenses.models import Expense
-
+from django.conf.urls.i18n import i18n_patterns
 
 info_dict = {
     "queryset": Expense.objects.all(),
@@ -15,6 +15,7 @@ info_dict = {
 }
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),  # Подключаем стандартные URL Django для локализации
     path("admin/", admin.site.urls),
     path('accounts/', include('allauth.urls')),
     # Local apps URL Configuration
@@ -44,7 +45,9 @@ urlpatterns = [
     ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
+urlpatterns += i18n_patterns(
+    path('translationsss/', include('translationsss.urls')),
+)
 # Customizing-error-views
 handler404 = "accounts.views.page_not_found_error"
 handler500 = "accounts.views.page_error"

@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
        <!-- Sidebar -->
         <ul class="navbar-nav bg-indigo-900 sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -19,23 +21,37 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'dashboard' %}">
                     <i class="fas fa-home"></i>
-                    <span>Статистика</span></a>
+                    <span>{% trans 'Dashboard' %}</span></a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'income' %}">
                     <i class="fas fa-dollar-sign"></i>
-                    <span>Доходы</span></a>
+                    <span>{% trans 'Income' %}</span></a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'expense' %}">
                     <i class="fas fa-money-check-alt"></i>
-                    <span>Расходы</span></a>
+                    <span>{% trans "Expenses" %}</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe"></i> {{ request.LANGUAGE_CODE|upper }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <button type="submit" name="language" value="en" class="dropdown-item">English</button>
+                        <button type="submit" name="language" value="ru" class="dropdown-item">Русский</button>
+                        <button type="submit" name="language" value="kk" class="dropdown-item">Қазақша</button>
+                    </form>
+                </div>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"

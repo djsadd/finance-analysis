@@ -11,6 +11,8 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from django.utils.translation import gettext_lazy as _
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Или "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap5"  # Замените на вашу версию
 
@@ -30,6 +32,21 @@ else:
     SECURE_SSL_REDIRECT = False
 
 ALLOWED_HOSTS = ["127.0.0.1:8000", "django-income-expense-manager.herokuapp.com"]
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Русский')),
+    ('kk', _('Қазақша')),
+]
+
+LANGUAGE_CODE = 'en'  # Язык по умолчанию
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',  # Папка для переводов
+]
+
 
 
 INSTALLED_APPS = [
@@ -58,6 +75,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
     "django_plotly_dash",
+    'translationsss'
 ]
 # production
 SITE_ID = 2
@@ -112,6 +130,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'allauth.account.middleware.AccountMiddleware',
+    'django.middleware.locale.LocaleMiddleware' ,  # Middleware для обработки языка
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = "Project.urls"

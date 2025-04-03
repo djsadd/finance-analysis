@@ -1,11 +1,13 @@
-                <!-- Begin Page Content -->
+{% load i18n %}
+            
+            <!-- Begin Page Content -->
                 <div class="container-fluid">
                 
                     <!-- Page Heading -->
                      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Анализ расходов и доходов</h1>
+                        <h1 class="h3 mb-0 text-gray-800">{% trans 'Analysis of expenses and income' %}</h1>
                         <a  href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 
-                        <button id="reportBtn">Сгенерироать отчёт</button>
+                        <button id="reportBtn">{% trans 'Export Excel' %}</button>
                         </a> 
                         <script>
                             let report = document.querySelector('#reportBtn').addEventListener('click',function() {
@@ -24,7 +26,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                ВАШ БАЛАНС</div>
+                                                {% trans 'Your Balance' %}</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             ₸{{total_balance|floatformat:2}}</div>
                                         </div>
@@ -44,7 +46,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Общий доход</div>
+                                                {% trans 'Total income' %}</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             ₸{{totolIncome|floatformat:2}}</div>
                                         </div>
@@ -64,7 +66,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Общий расход
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">{% trans 'Total expenses' %}
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">

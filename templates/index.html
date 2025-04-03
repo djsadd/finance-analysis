@@ -2,6 +2,8 @@
 {% load static %}
 {% block body %}
 {% load plotly_dash %}
+{% load i18n %}
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -70,7 +72,7 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Отчёт доходов и расхдов</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{% trans 'Income and Expense Statement' %}</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -97,12 +99,12 @@
                                                 labels: labels,
                                                 datasets: [
                                                     {
-                                                        label: "Доход",
+                                                        label: "{% trans 'Income' %}",
                                                         data: incomeValues,
                                                         backgroundColor: "rgba(54, 162, 235, 0.6)"
                                                     },
                                                     {
-                                                        label: "Расход",
+                                                        label: "{% trans 'Expenses' %}",
                                                         data: expenseValues,
                                                         backgroundColor: "rgba(255, 99, 132, 0.6)"
                                                     }
@@ -130,7 +132,7 @@
                                             labels: labels,
                                             datasets: [
                                                 {
-                                                    label: "Расходы",
+                                                    label: "{% trans 'Expenses' %}",
                                                     data: expenseValues,
                                                     backgroundColor: "rgba(255, 99, 132, 0.6)"
                                                 },
@@ -160,7 +162,7 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Отчёт расходов</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{% trans 'Expense report' %}</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
