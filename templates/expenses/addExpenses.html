@@ -39,17 +39,17 @@ Add Expenses | {{ request.get_host }}
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{% url 'profile' %}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    {% trans 'Profile' %}
                                 </a>
                                 <a class="dropdown-item" href="{% url 'setting' %}">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    {% trans 'Settings' %}
                                 </a>
                             
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    {% trans 'Logout' %}
                                 </a>
                             </div>
                         </li>
@@ -62,7 +62,7 @@ Add Expenses | {{ request.get_host }}
                 <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="hover:no-underline" href="{% url 'expense'%}">Expense</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
+                    <li class="breadcrumb-item active" aria-current="page">{% trans 'Add Expenses' %}</li>
                 </ol>
                 </nav>
                 <div class="container">
@@ -71,9 +71,9 @@ Add Expenses | {{ request.get_host }}
                     
                         {{form|crispy}}
                     
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
                         <button  class="btn btn-dark">
-                        <a class="text-white hover:no-underline" href="{% url 'expense'%}">Cancle</a>
+                        <a class="text-white hover:no-underline" href="{% url 'expense'%}">{% trans 'Cancle' %}</a>
                         </button>
                     </form>
                 </div>

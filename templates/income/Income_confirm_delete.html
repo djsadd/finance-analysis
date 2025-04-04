@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load i18n %}
 <head>
 
     <meta charset="utf-8">
@@ -41,8 +42,8 @@
                     <div class="d-flex justify-content-center">
                         <form method="POST">
                             {% csrf_token %}
-                            <p class="text-white">Are your sure you want to delete this <b>{{incomes}}</b> amount?</p>
-                             <small class="text-white">You can't undo this.</small>
+                            <p class="text-white">{% trans 'Are your sure you want to delete this' %}<b>{{incomes}}</b> amount?</p>
+                             <small class="text-white">{% trans 'You can't undo this.' %}</small>
                             <br>
                             <input class="btn btn-danger" type="submit" value="Delete" />
                         </form>
@@ -61,7 +62,7 @@
            
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
             </div>
             </div>
 
@@ -90,15 +91,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Ready to Leave?' %}</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">{% trans 'Select "Logout" below if you are ready to end your current session.' %}</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{% url 'logout'%}">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{% trans 'Cancel' %}</button>
+                    <a class="btn btn-primary" href="{% url 'logout'%}">{% trans 'Logout' %}</a>
                 </div>
             </div>
         </div>

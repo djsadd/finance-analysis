@@ -17,32 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-
 #: Project/settings.py:37
 msgid "English"
-msgstr ""
+msgstr "Ағылшын"
 
 #: Project/settings.py:38
 msgid "Русский"
-msgstr ""
+msgstr "Орыс"
 
 #: Project/settings.py:39
 msgid "Қазақша"
-msgstr ""
+msgstr "Қазақша"
 
 #: accounts/models.py:21
 msgid "City"
-msgstr ""
+msgstr "Қала"
 
 #: venv/lib/python3.12/site-packages/click/_termui_impl.py:556
 #, python-brace-format
 msgid "{editor}: Editing failed"
-msgstr ""
+msgstr "{editor}: Өңдеу сәтсіз аяқталды"
 
 #: venv/lib/python3.12/site-packages/click/_termui_impl.py:560
 #, python-brace-format
 msgid "{editor}: Editing failed: {e}"
-msgstr ""
+msgstr "{editor}: Өңдеу сәтсіз аяқталды: {e}"
 
 #: venv/lib/python3.12/site-packages/click/core.py:1124
 msgid "Aborted!"
@@ -1549,3 +1548,36 @@ msgstr ""
 #, python-format
 msgid "Add %(name)s"
 msgstr ""
+
+msgid "Expenses"
+msgstr "Шығындар"
+
+msgid "Income"
+msgstr "Кірістер"
+
+msgid "Dashboard"
+msgstr "Басқару панелі"
+
+msgid "Analysis of expenses and income"
+msgstr "Шығындар мен кірістердің талдауы"
+
+msgid "Your Balance"
+msgstr "Сіздің балансыңыз"
+
+msgid "Total income"
+msgstr "Жалпы кіріс"
+
+msgid "Total expenses"
+msgstr "Жалпы шығындар"
+
+msgid "Income and Expense Statement"
+msgstr "Кірістер мен шығындар туралы есеп"
+
+msgid "Expense report"
+msgstr "Шығындар есебі"
+
+msgid "Export Excel"
+msgstr "Excel-ге экспорттау"
+
+msgid "Manage Expenses"
+msgstr "Шығындарды басқару"

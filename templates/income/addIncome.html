@@ -1,6 +1,7 @@
 {% extends 'partials/__base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
+{% load i18n %}
 Add Income | {{ request.get_host }}
 {% endblock title %}
 {% load static %}
@@ -39,17 +40,17 @@ Add Income | {{ request.get_host }}
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{% url 'profile' %}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    {% trans 'Profile' %}
                                 </a>
                                 <a class="dropdown-item" href="{% url 'setting' %}">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    {% trans 'Settings' %}
                                 </a>
                             
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    {% trans 'Logout' %}
                                 </a>
                             </div>
                         </li>

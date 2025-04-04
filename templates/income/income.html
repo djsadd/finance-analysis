@@ -2,6 +2,7 @@
 <html lang="en">
 {% load static %}
 {% load humanize %}
+{% load i18n %}
 <head>
 
     <meta charset="utf-8">
@@ -74,33 +75,33 @@
                     <!-- Income Table -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Manage Income</h5>
+                            <h5 class="m-0 font-weight-bold text-primary">{% trans 'Manage Income' %}</h5>
                         </div>
                        
                         <div class="d-sm-flex align-items-start justify-content-between mb-0">
                             <h1 class="h3 mb-0 text-gray-800"></h1>
                             <a  href="{% url 'export-income' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-download fa-sm text-white-50"></i> 
-                            <button type="download">Download Report</button></a>
+                            <button type="download">{% trans 'Download Report' %}</button></a>
                             </a> 
                         </div>
 
                         <div class="card-body">
                             <button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"></i>
-                            <a class="text-white hover:no-underline" href="{% url 'addIncome'%}">Add Income</a></button> 
+                            <a class="text-white hover:no-underline" href="{% url 'addIncome'%}">{% trans 'Add Income' %}</a></button>
                        
                             <div class="table-responsive">
                             
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
-                                            <th class="text-center">SL.</th>
-                                            <th class="text-center">Amount</th>
-                                            <th class="text-center">Description</th>
-                                            <th class="text-center">Sources</th>
-                                             <th class="text-center">Created</th>
-                                            <th class="text-center">Action</th>
+                                            <th class="text-center">{% trans 'SL.' %}</th>
+                                            <th class="text-center">{% trans 'Amount' %}</th>
+                                            <th class="text-center">{% trans 'Description' %}</th>
+                                            <th class="text-center">{% trans 'Sources' %}</th>
+                                             <th class="text-center">{% trans 'Created' %}</th>
+                                            <th class="text-center">{% trans 'Action' %}</th>
                                         </tr>
                                     </thead>
 
@@ -114,10 +115,10 @@
                                             <td class="text-center">{{ items.date|naturaltime }}</td>
                                             <td class="text-center"><i class="material-icons">
                                             <a 
-                                            href="{% url 'delete-income' items.id %}" class="text-decoration-none text-red-600 hover:text-red-600">Delete</a>
+                                            href="{% url 'delete-income' items.id %}" class="text-decoration-none text-red-600 hover:text-red-600">{% trans 'Delete' %}</a>
                                             
 
-                                            <a href="{% url 'update-income' items.id %}" class="m-1 text-decoration-none text-green-600 hover:text-green-600">Edit</a>
+                                            <a href="{% url 'update-income' items.id %}" class="m-1 text-decoration-none text-green-600 hover:text-green-600">{% trans 'Edit' %}</a>
                                             </i></td>
                                         </tr>
                                     </tbody>
@@ -132,14 +133,14 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-end">
                             {% if page_obj.has_previous %}
-                                <a class="page-link" href="?page=1">&laquo; First</a>
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                <a class="page-link" href="?page=1">&laquo;{% trans 'First' %}</a>
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a>
                             {% endif %}
 
 
                             {% if page_obj.has_next %}
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a>
+                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans 'Last' %} &raquo;</a>
                             {% endif %}
 
                             <li class="page-item"><a class="page-link" href="#"> 
@@ -171,12 +172,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Ready to Leave?' %}</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">{% trans 'Select "Logout" below if you are ready to end your current session.' %}</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="{% url 'logout'%}">Logout</a>

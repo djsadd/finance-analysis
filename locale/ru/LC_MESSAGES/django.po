@@ -1584,3 +1584,5 @@ msgstr "Отчёт расходов"
 
 msgid "Export Excel"
 msgstr "Сгенерироать отчёт"
+
+
