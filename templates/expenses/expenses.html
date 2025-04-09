@@ -96,11 +96,11 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">SL.</th>
-                                            <th class="text-center">Why</th>
-                                            <th class="text-center">Description</th>
-                                            <th class="text-center">Balance</th>
-                                            <th class="text-center">Created at</th>
-                                            <th class="text-center">Action</th>
+                                            <th class="text-center">{% trans 'Why' %}</th>
+                                            <th class="text-center">{% trans 'Description' %}</th>
+                                            <th class="text-center">{% trans 'Balance' %}</th>
+                                            <th class="text-center">{% trans 'Created at' %}</th>
+                                            <th class="text-center">{% trans 'Action' %}</th>
                                         </tr>
                                     </thead>
 
@@ -135,13 +135,13 @@
                         <ul class="pagination justify-content-end">
                             {% if page_obj.has_previous %}
                                 <a class="page-link" href="?page=1">&laquo; First</a>
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a>
                             {% endif %}
 
 
                             {% if page_obj.has_next %}
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a>
+                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans 'Last' %} &raquo;</a>
                             {% endif %}
 
                             <li class="page-item"><a class="page-link" href="#"> 

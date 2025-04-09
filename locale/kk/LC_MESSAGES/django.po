@@ -1581,3 +1581,33 @@ msgstr "Excel-ге экспорттау"
 
 msgid "Manage Expenses"
 msgstr "Шығындарды басқару"
+
+msgid "Add Income"
+msgstr "Табыс қосу"
+
+msgid "Download Report"
+msgstr "Есепті жүктеу"
+
+msgid "Amount"
+msgstr "Сома"
+
+msgid "Description"
+msgstr "Сипаттама"
+
+msgid "Created"
+msgstr "Құрылған күні"
+
+msgid "Manage Income"
+msgstr "Табысты басқару"
+
+msgid "Manage Expenses"
+msgstr "Шығындарды басқару"
+
+msgid "Why"
+msgstr "Неліктен"
+
+msgid "Manage Income"
+msgstr "Баланс"
+
+msgid "Action"
+msgstr "Әрекет"
